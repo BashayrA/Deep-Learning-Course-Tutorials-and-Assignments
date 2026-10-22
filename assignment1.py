@@ -29,4 +29,7 @@ t_student_data_gpu = t_student_data.to(device)
 # Print the device used to store the Tensor.
 print("original tensor:", t_student_data.device)      
 print("moved tensor:  ", t_student_data_gpu.device)
-print("the name of the GPU:", torch.cuda.get_device_name())   
+if torch.cuda.is_available():
+    print("GPU name:", torch.cuda.get_device_name(0))
+else:
+    print("No GPU available") 
